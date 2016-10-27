@@ -8,7 +8,7 @@ using TerrariaApi.Server;
 using System.Timers;
 
 namespace Spawn {
-    [ApiVersion(1, 17)]
+    [ApiVersion(1, 25)]
     public class BringToSpawn : TerrariaPlugin {
         Timer bringTimer = new Timer();
         Random r = new Random();
@@ -27,13 +27,13 @@ namespace Spawn {
             });
         }
         public override Version Version {
-            get { return new Version("1.0.2"); }
+            get { return new Version("1.0.3"); }
         }
         public override string Name {
             get { return "Bring to Spawn"; }
         }
         public override string Author {
-            get { return "GameRoom"; }
+            get { return "GameRoom/MineBartekSA"; }
         }
         public override string Description {
             get { return "Brings all players, separated by team, to spawn."; }
