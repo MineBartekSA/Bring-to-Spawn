@@ -6,9 +6,10 @@ using TShockAPI;
 using Terraria;
 using TerrariaApi.Server;
 using System.Timers;
+using OTAPI.Tile;
 
 namespace Spawn {
-    [ApiVersion(1, 25)]
+    [ApiVersion(2, 00)]
     public class BringToSpawn : TerrariaPlugin {
         Timer bringTimer = new Timer();
         Random r = new Random();
@@ -27,7 +28,7 @@ namespace Spawn {
             });
         }
         public override Version Version {
-            get { return new Version("1.0.3"); }
+            get { return new Version("1.1.0"); }
         }
         public override string Name {
             get { return "Bring to Spawn"; }
@@ -106,7 +107,7 @@ namespace Spawn {
                     bool canBreak = true;
                     for (byte xx = 0; xx < 2; xx++)
                         for (byte yy = 0; yy < 3; yy++) {
-                            Tile Tile = Main.tile[pos.X + xx, pos.Y + yy];
+                            ITile Tile = Main.tile[pos.X + xx, pos.Y + yy];
                             if (Tile.collisionType > 0 || Tile.lava()) canBreak = false;
                             }
                     if (canBreak) break;
@@ -115,7 +116,7 @@ namespace Spawn {
                 while (true) {
                     bool canBreak = false;
                     for (byte xx = 0; xx < 2; xx++) {
-                        Tile Tile = Main.tile[pos.X + xx, pos.Y + 3];
+                        ITile Tile = Main.tile[pos.X + xx, pos.Y + 3];
                         if (Tile.collisionType > 0) canBreak = true;
                     }
                     if (canBreak) break;
