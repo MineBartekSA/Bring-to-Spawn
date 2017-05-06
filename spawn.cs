@@ -9,7 +9,7 @@ using System.Timers;
 using OTAPI.Tile;
 
 namespace Spawn {
-    [ApiVersion(2, 00)]
+    [ApiVersion(2, 1)]
     public class BringToSpawn : TerrariaPlugin {
         Timer bringTimer = new Timer();
         Random r = new Random();
